@@ -1,0 +1,1 @@
+Small node app that listens for client posting temperature and humitity readings, and then writes them to a local file.
