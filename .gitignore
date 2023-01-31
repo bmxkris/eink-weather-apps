@@ -3,4 +3,11 @@
 
 # files written by apps
 humidityAndTemperatureListener/humidityAndTemp.json
+imageProcessAndSend/dash.png
 
+# Dependency directories
+imageProcessAndSend/node_modules/
+
+# .DS_Store files
+.DS_Store
+*/.DS_Store
