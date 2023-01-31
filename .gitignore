@@ -1,0 +1,6 @@
+# dotenv environment variables file
+.env
+
+# files written by apps
+humidityAndTemperatureListener/humidityAndTemp.json
+
