@@ -1,6 +1,10 @@
 # dotenv environment variables file
 .env
 
+# sensitive data
+esp32-eink-fetch-and-display-image/Fetch_and_display_image/wifienv.h
+esp32-measure-humidity-and-temperature-and-send-to-listener/wifideets.py
+
 # files written by apps
 dashboardAndScreenshotGeneration/weather.json
 humidityAndTemperatureListener/humidityAndTemp.json
