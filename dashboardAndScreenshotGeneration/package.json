@@ -1,0 +1,17 @@
+{
+  "name": "kindle-dashboard",
+  "version": "0.1.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "puppeteer": "^19.1.0"
+  },
+  "scripts": {
+    "scrot": "node scrot.js"
+  },
+  "dependencies": {
+    "browserify-fs": "^1.0.0",
+    "dotenv": "^16.0.3",
+    "morgan": "^1.10.0"
+  }
+}
