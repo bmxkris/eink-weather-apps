@@ -1,25 +1,7 @@
 const puppeteer = require('puppeteer');
 const cp = require('child_process');
 
-const IMAGE_FILE = 'imageProcessAndSend/dash.png';
-
-// require('dotenv').config();
-
-// const {
-//     LAT,
-//     LON,
-//     OPENWEATHER_KEY
-// } = process.env;
-
-// const assert = (test, text) => {
-//     if (!test) {
-//         throw `Assertion error: ${text}`;
-//     }
-// }
-
-// assert(LAT, 'environment variable `LAT` is set');
-// assert(LON, 'environment variable `LON` is set');
-// assert(OPENWEATHER_KEY, 'environment variable `OPENWEATHER_KEY` is set');
+const IMAGE_FILE = '../imageProcessAndSend/dash.png';
 
 // var cachebuster = Math.round(new Date().getTime() / 1000);
 
