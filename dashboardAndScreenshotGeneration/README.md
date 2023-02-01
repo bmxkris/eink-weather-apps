@@ -1,7 +1,7 @@
 Most of the code for this part of the project was forked from:
 https://github.com/makepanic/eink-weather
 
-A small html snippet that allows the generation of a weather dashboard for display on an e-ink displace.
+A small html snippet that allows the generation of a weather dashboard for display on an e-ink display.
 
 ## Configuration
 
