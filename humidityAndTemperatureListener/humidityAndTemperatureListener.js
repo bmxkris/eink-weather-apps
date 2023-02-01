@@ -12,7 +12,7 @@ const server = http.createServer((req, res) => {
     // console.log(JSON.stringify(params));
     
     const fs = require('fs');
-    fs.writeFile('./humidityAndTemp.json', JSON.stringify(params), err => {
+    fs.writeFile('../dashboardAndScreenshotGeneration/humidityAndTemp.json', JSON.stringify(params), err => {
       if (err) {
         console.error(err);
       }
