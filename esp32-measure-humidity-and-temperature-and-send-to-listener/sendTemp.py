@@ -4,7 +4,7 @@ import urequests
 import dht
 from machine import Pin
 from machine import deepsleep
-from wifideets import ssid, password
+from wifideets import ssid, password, hostAndPort
 
 
 led=Pin(2,Pin.OUT)
@@ -29,7 +29,7 @@ humi=sensor.humidity()
 
 print('try catch')
 try:
-    response = urequests.get("http://192.168.0.102:3030/?temp=" + str(temp) + "&humi=" + str(humi))
+    response = urequests.get("http://" + hostAndPort + "/?temp=" + str(temp) + "&humi=" + str(humi))
 except Exception as exc:
     print(exc)
     print('------ error sleepy time------')
