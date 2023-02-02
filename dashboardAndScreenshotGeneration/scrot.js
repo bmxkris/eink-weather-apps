@@ -1,3 +1,4 @@
+const scrotConfig  = require('./scrotConfig.json');
 const puppeteer = require('puppeteer');
 const cp = require('child_process');
 
@@ -7,13 +8,16 @@ const IMAGE_FILE = '../imageProcessAndSend/dash.png';
 
 (async () => {
     // 1. Launch the browser
-    const browser = await puppeteer.launch({
-        dumpio: true,
-        defaultViewport: {
-            width: 480,
-            height: 800,
-        }
-    });
+    const browser = await puppeteer.launch(scrotConfig);
+
+    // Example scrotConfig.json
+    // {    
+    //     "dumpio": true,
+    //     "defaultViewport": {
+    //         "width": 480,
+    //         "height": 800
+    //     }
+    // }
 
     // 2. Open a new page
     const page = await browser.newPage();

@@ -1,5 +1,6 @@
-# dotenv environment variables file
+# dotenv and other environment variables file
 .env
+dashboardAndScreenshotGeneration/scrotConfig.json
 
 # sensitive data
 esp32-eink-fetch-and-display-image/Fetch_and_display_image/wifienv.h
