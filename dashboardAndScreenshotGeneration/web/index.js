@@ -39,12 +39,17 @@ function weatherIconClass(time, weatherId) {
 }
 
 const loadWeather = async () => {
-    console.log( dateFormat.format(now) + " " + timeFormat.format(now) + " " + 'about to make the call')
+    // console.log( dateFormat.format(now) + " " + timeFormat.format(now) + " " + 'about to make the call')
     // const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${LAT}&lon=${LON}&units=metric&exclude=minutely,alerts&appid=${API_KEY}`);
     // THIS IS NOW PREPARED BY callAndCacheOpenweathermap.js
     const res = await fetch(`http://localhost:9999/weather.json`);
     const json = await res.json();
     // console.log(json)
+
+    const resHumiTemp = await fetch('http://localhost:9999/humidityAndTemp.json');
+    const jsonHumiTemp = await resHumiTemp.json();
+
+    console.log(jsonHumiTemp);
 
 
     const {sunrise, sunset, weather, dt} = json.current
@@ -84,7 +89,7 @@ const loadWeather = async () => {
 
     // setup d3 graph
     const startFrom = json.hourly.findIndex(item => (item.dt * 1000) >= now.getTime())
-    const hourly = json.hourly.slice(startFrom, startFrom + 9)
+    const hourly = json.hourly.slice(startFrom + 1 , startFrom + 10)
         .map(d => ({...d, dt: d.dt * 1000}));
     const margin = ({top: 20, right: 25, bottom: 100, left: 25});
     const height = 90;
@@ -141,7 +146,7 @@ const loadWeather = async () => {
     // setup second d3 graph ----------------------------------------------------------------------------------------------------------------
     const daily = json.daily.slice(0,6)
         .map(d => ({...d, dt: d.dt * 1000}));
-    console.log('daily')
+    // console.log('daily')
 
     $('#daily-weather').setAttribute('height', height);
     $('#daily-weather').setAttribute('width', width);
@@ -183,7 +188,7 @@ const loadWeather = async () => {
             }
         });
 
-    console.log("done")
+    // console.log("done")
 
     // line
     // svg.append("path")
