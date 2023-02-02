@@ -14,6 +14,9 @@ imageProcessAndSend/dash.png
 # Dependency directories
 */node_modules/
 
+# Log files
+dashboardAndScreenshotGeneration/scrot.log
+
 # .DS_Store files
 .DS_Store
 */.DS_Store
