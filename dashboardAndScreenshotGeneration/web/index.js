@@ -49,8 +49,7 @@ const loadWeather = async () => {
     const resHumiTemp = await fetch('http://localhost:9999/humidityAndTemp.json');
     const jsonHumiTemp = await resHumiTemp.json();
 
-    console.log(jsonHumiTemp);
-
+    // console.log(jsonHumiTemp);
 
     const {sunrise, sunset, weather, dt} = json.current
 
@@ -69,8 +68,9 @@ const loadWeather = async () => {
     $('.card .sunrise').innerText = timeFormat.format(new Date(sunriseMs));
     $('.card .sunset').innerText = timeFormat.format(new Date(sunsetMs));
 
-    $('.card .temp').innerText = json.current.temp.toFixed(1);
-    $('.card .temp-feels').innerText = json.current.feels_like.toFixed(1);
+    $('.card .temp').innerText = json.current.temp.toFixed(0);
+    $('.card .temp-feels').innerText = json.current.feels_like.toFixed(0);
+    $('.card .temp-actual').innerText = jsonHumiTemp.temp;
 
     // weather
     const [primary] = weather;
