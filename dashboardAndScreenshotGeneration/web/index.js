@@ -62,7 +62,15 @@ const loadWeather = async () => {
     const deg = (progress * 180) - 90;
 
     $('#lastupdated_weather').innerText = timeFormat.format(dt*1000);
-    $('#lastupdated_temperature').innerText = timeFormat.format(new Date(jsonHumiTemp.dt));
+
+    const lastHumiTempDt = new Date(jsonHumiTemp.dt);
+    $('#lastupdated_temperature').innerText = timeFormat.format(lastHumiTempDt);
+
+    // if the update is < 2 hours hide the warning element
+    if (now - lastHumiTempDt < 7200000 )
+        $('#warning_temperature').remove();
+
+
 
     $('.sun__rotate').style.transform = `rotate(${deg}deg)`;
 
