@@ -135,7 +135,7 @@ body {
 }
 
 .labeled__prefix, .labeled__suffix {
-    font-size: 40px;
+    font-size: 30px;
     color: var(--l4);
 }
 
