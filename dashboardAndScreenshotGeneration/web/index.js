@@ -62,6 +62,7 @@ const loadWeather = async () => {
     const deg = (progress * 180) - 90;
 
     $('#lastupdated_weather').innerText = timeFormat.format(dt*1000);
+    $('#lastupdated_temperature').innerText = timeFormat.format(new Date(jsonHumiTemp.dt));
 
     $('.sun__rotate').style.transform = `rotate(${deg}deg)`;
 

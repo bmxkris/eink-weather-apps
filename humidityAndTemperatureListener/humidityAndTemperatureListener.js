@@ -10,6 +10,7 @@ const server = http.createServer((req, res) => {
     
     var params = url.parse(req.url, true).query;
     // console.log(JSON.stringify(params));
+    params["dt"] = new Date()
     
     const fs = require('fs');
     fs.writeFile('../dashboardAndScreenshotGeneration/humidityAndTemp.json', JSON.stringify(params), err => {
@@ -28,3 +29,5 @@ const server = http.createServer((req, res) => {
 server.listen(PORT, () => {
   console.log(`Server running on port ${PORT}.`);
 });
+
+// you can test this script locally using: curl "http://localhost:3030/?temp=11&humi=50"
