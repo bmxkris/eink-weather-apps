@@ -79,7 +79,7 @@ const loadWeather = async () => {
 
     $('.card .temp').innerText = json.current.temp.toFixed(0);
     $('.card .temp-feels').innerText = json.current.feels_like.toFixed(0);
-    $('.card .temp-actual').innerText = jsonHumiTemp.temp;
+    $('.card .temp-actual').innerText = Math.round(jsonHumiTemp.temp);
 
     // weather
     const [primary] = weather;
