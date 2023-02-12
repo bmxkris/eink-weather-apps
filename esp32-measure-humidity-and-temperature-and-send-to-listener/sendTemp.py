@@ -22,7 +22,7 @@ def connect():
 
 connect()
 
-sensor = dht.DHT11(Pin(13))
+sensor = dht.DHT22(Pin(13))
 sensor.measure()
 temp=sensor.temperature()
 humi=sensor.humidity()
