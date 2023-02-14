@@ -44,12 +44,12 @@ const loadWeather = async () => {
     // THIS IS NOW PREPARED BY callAndCacheOpenweathermap.js
     const res = await fetch(`http://localhost:9999/weather.json`);
     const json = await res.json();
-    // console.log(json)
 
     const resHumiTemp = await fetch('http://localhost:9999/humidityAndTemp.json');
     const jsonHumiTemp = await resHumiTemp.json();
 
-    // console.log(jsonHumiTemp);
+    const resBattV = await fetch('http://localhost:9999/battv.json');
+    const jsonBattV = await resBattV.json();
 
     const {sunrise, sunset, weather, dt} = json.current
 
@@ -65,6 +65,8 @@ const loadWeather = async () => {
 
     const lastHumiTempDt = new Date(jsonHumiTemp.dt);
     $('#lastupdated_temperature').innerText = timeFormat.format(lastHumiTempDt);
+
+    $('#lastupdated_battv').innerText = jsonBattV.battv + "v";
 
     // if the update is < 2 hours hide the warning element
     if (now - lastHumiTempDt < 7200000 )

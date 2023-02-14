@@ -9,6 +9,7 @@ esp32-measure-humidity-and-temperature-and-send-to-listener/wifideets.py
 # files written by apps
 dashboardAndScreenshotGeneration/weather.json
 dashboardAndScreenshotGeneration/humidityAndTemp.json
+dashboardAndScreenshotGeneration/battv.json
 imageProcessAndSend/dash.png
 
 # Dependency directories

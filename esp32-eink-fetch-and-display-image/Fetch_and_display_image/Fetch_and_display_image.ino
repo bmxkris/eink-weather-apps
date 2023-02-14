@@ -24,7 +24,9 @@ void setup()
 
     // Prepare LED
     pinMode(2, OUTPUT);
-
+    // Set pin to read battery voltage
+    pinMode(34, INPUT);
+    
     // Server initialization
     Srvr__setup();
 
@@ -33,7 +35,7 @@ void setup()
 
     // Initialization is complete
     Serial.print("\r\nOk!\r\n");
-
+    
     // Request image from Pi
     Request__image();
 }

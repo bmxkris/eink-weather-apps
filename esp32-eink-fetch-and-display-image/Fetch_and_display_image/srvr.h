@@ -34,6 +34,10 @@ bool isIndexPage = true; // true : GET  request, client needs 'index' page;
 /* The 'sleep' flag ------------------------------------------------------*/
 bool isSleepyTime = false; // true : go to deep sleep;
                            // false: still processing requests.
+
+/* Variable to read the battery voltage --------------------------------------*/
+float battv;
+
 /* The start time value ------------------------------------------------------*/
 unsigned long startTime;
 
@@ -73,8 +77,12 @@ void Request__image()
     Serial.println("connection failed");
   }
 
+  // Take voltage reading, see: https://mansfield-devine.com/speculatrix/2021/08/esp32-room-thermometer-with-18650-battery-level-indicator/
+  battv = ((float)analogRead(34) / 4095) * 3.3 * 2 * 1.06;
+
+
   // send HTTP request header
-  client.println(HTTP_METHOD + " " + PATH_NAME + " HTTP/1.1");
+  client.println(HTTP_METHOD + " " + PATH_NAME + "?battv=" + battv + " HTTP/1.1");
   client.println("Host: " + String(HOST_NAME));
   client.println("Connection: close");
   client.println(); // end HTTP request header
