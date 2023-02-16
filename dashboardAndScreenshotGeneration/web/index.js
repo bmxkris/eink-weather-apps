@@ -39,16 +39,19 @@ function weatherIconClass(time, weatherId) {
 }
 
 const loadWeather = async () => {
-    // console.log( dateFormat.format(now) + " " + timeFormat.format(now) + " " + 'about to make the call')
+
+    const hostname = window.location.hostname;
+    const port = window.location.port;
+
     // const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${LAT}&lon=${LON}&units=metric&exclude=minutely,alerts&appid=${API_KEY}`);
     // THIS IS NOW PREPARED BY callAndCacheOpenweathermap.js
-    const res = await fetch(`http://localhost:9999/weather.json`);
+    const res = await fetch('http://' + hostname + ':' + port + '/weather.json');
     const json = await res.json();
 
-    const resHumiTemp = await fetch('http://localhost:9999/humidityAndTemp.json');
+    const resHumiTemp = await fetch('http://' + hostname + ':' + port + '/humidityAndTemp.json');
     const jsonHumiTemp = await resHumiTemp.json();
 
-    const resBattV = await fetch('http://localhost:9999/battv.json');
+    const resBattV = await fetch('http://' + hostname + ':' + port + '/battv.json');
     const jsonBattV = await resBattV.json();
 
     const {sunrise, sunset, weather, dt} = json.current
